@@ -11,6 +11,7 @@ class Student:
     def house(self, house):
         if house not in ["Gryffindor", "HuffLepuff", "Ravenclaw", "Slytherin"]:
             raise ValueError("INvalid house in Hogwarts")
+        self._house
 
 def main():
 
