@@ -2,12 +2,10 @@ from random import choice
 
 class Hat:
 
-    def __init__(self):
-        self.house = ["grifinoria", "lufalufa", "Corvinal ", "Sonserina"]
+    house = ["grifinoria", "lufalufa", "Corvinal ", "Sonserina"]
 
-    def sort (self, name):
-        print(name, "is in", choice(self.house))
+    @classmethod
+    def sort (cls, name):
+        print(name, "is in", choice(cls.house))
 
-hat = Hat()
-
-hat.sort("Harry")
+Hat.sort("Harry")
