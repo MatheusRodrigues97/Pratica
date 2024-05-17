@@ -1,8 +1,16 @@
-pessoa = {"nome": "Matheus Rodrigues", "sobrenome": "Santa Rosa da Cunha"}
+def pega_valor ():
+    
+    adivinha = input("Escreva um nome de um objeto para que possa adivinhar : ")
+    
+    if not adivinha:
+        raise("Digite um objetivo")
+    
+    valor = set(adivinha)
+    return valor
 
-print(pessoa.__len__())
+def main ():
+    letras = pega_valor()
+    
+    print (f"Letras em ordem doidas {letras}")
 
-for itens, valores in pessoa.items():
-    print(f"index :{itens} and valores: {valores}")
-
-d2 = pessoa.copy()
+main()

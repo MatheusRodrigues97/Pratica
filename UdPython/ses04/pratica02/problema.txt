@@ -1,0 +1,5 @@
+ Retorne o total das multiplicações para uma variavel e mostre o valor na tela
+
+ Resolução:
+ 	
+	->
