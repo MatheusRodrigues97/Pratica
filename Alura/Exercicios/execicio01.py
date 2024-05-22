@@ -23,6 +23,7 @@ def listar_ano_nascimento(n):
     lista_ano_nascimento: int = []
 
     lista_ano_nascimento = adicinar_dados(lista_ano_nascimento, n)
+    print(f'Nomes {lista_ano_nascimento}')
 ####################################################################################
 
 def adicinar_dados(lista ,tamanho):
@@ -30,7 +31,7 @@ def adicinar_dados(lista ,tamanho):
 
     while i < tamanho:
         try:
-            valor = input('Digite um valor')
+            valor = input('\nDigite um valor: ')
             lista.append(valor)
            
             i+=1
@@ -46,8 +47,13 @@ def adicinar_dados(lista ,tamanho):
 
 
 def main():
+    print('Vamos contar ate 10')
     listar_numeros(10)
+    
+    print('adicione cinco nomes ')
     listar_nomes(5)
+    
+    print('Agora coloque o ano de nascimento de cada um')
     listar_ano_nascimento(5)
 
 main()      
