@@ -1,6 +1,8 @@
 import os
 
-lista_restaurantes = []
+lista_restaurantes = [{'nome': 'Praça', 'categoria': 'Japones', 'ativo': False},
+                      {'nome': 'Pizza suprema', 'categoria': 'italina', 'ativo': True},
+                      {'nome': 'CantinaDaVó', 'categoria':'italiano', 'ativo':False}]
 
 def exibir_nome_programa():
 
@@ -16,16 +18,19 @@ def exibir_opcoes ():
 
     print('1 cadastrar restaurante')
     print('2 listar restaurante')
-    print('3 ativar restaurante')
+    print('3 Alternar estado do restaurante')
     print('4 sair\n')
 
 def cadastrar_restaurante():
 
     os.system('clear')
+    print(f'Cadastre o seu restaurante\n')
     
     nome_restaurante = input('Digite o nome do resturante: ')
-    lista_restaurantes.append(nome_restaurante)
-    print(f'Restaurantes {lista_restaurantes} cadastrado com sucesso')
+    categoria = input(f'\nDigite a categoria do resturante {nome_restaurante} :')
+
+    novo_restaurante = {'nome': nome_restaurante, 'categoria': categoria, 'ativo': False}
+    lista_restaurantes.append(novo_restaurante)
 
     opcao_invalida()   
 
@@ -39,15 +44,41 @@ def opcao_invalida():
     else:
         main()
 
-def listar_restaurantes ():
+def listar_restaurantes():
     
     os.system('clear')
+
+    print(f'listando os restaurante cadastrados')
     
     for restaurante in lista_restaurantes:
-        print('restaurante {restaurante}')
-    
-    main()
 
+        nome_restaurante = restaurante['nome']
+        categoria_restaurante = restaurante['categoria']
+        ativo = f'ativo' if restaurante['ativo'] == True else f'desativado'
+        
+        print(f'\nrestaurante  = {nome_restaurante.ljust(20)} | tipo = {categoria_restaurante.ljust(20)} | Ativo = {ativo.ljust(20)}\n')
+    opcao_invalida() 
+    
+def alternar_estado_restaurante():
+    os.system('clear')
+    
+    print('Alterar o estado do restaurante')
+
+    nome_restaurante = input('Digite o nome do restaurante para alterar o estado: ')
+    restaurante_encontrado = False
+
+    for restaurante in lista_restaurantes:
+        if nome_restaurante == restaurante['nome']:
+            
+            restaurante_encontrado = True
+            restaurante['ativo'] = not restaurante['ativo']
+            mensagem = f'O restaurante { nome_restaurante} foi ativado com sucesso' if restaurante['ativo'] else f'O restaurante {nome_restaurante}, foi desativado com sucesso '
+            print(mensagem)
+
+    if not restaurante_encontrado:
+        print('O restaurante não foi encotrado ')
+    
+    opcao_invalida()
 
 def escolher_opcao():
     try:
@@ -55,13 +86,13 @@ def escolher_opcao():
         print(f'Você escolheu a opção {opcao_escolhida}')
 
         if opcao_escolhida == 1:
-            print(f'cadastre o restaurante')
+            cadastrar_restaurante()
 
         elif opcao_escolhida == 2:
-            print(f'listando os restaurante cadastrados')
+            listar_restaurantes()
 
         elif opcao_escolhida == 3:
-            print(f'ativar resturantes')
+            alternar_estado_restaurante()
 
         elif opcao_escolhida == 4:
             finalizar_app()
