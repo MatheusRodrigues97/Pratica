@@ -15,6 +15,7 @@ def finalizar_app():
     
 
 def exibir_opcoes ():
+    '''Função para exibir o menu do programa a pessoa '''
 
     print('1 cadastrar restaurante')
     print('2 listar restaurante')
@@ -22,6 +23,7 @@ def exibir_opcoes ():
     print('4 sair\n')
 
 def cadastrar_restaurante():
+    '''Função responsavel por cadastrar um restaurante no dicionario modelo'''
 
     os.system('clear')
     print(f'Cadastre o seu restaurante\n')
@@ -36,7 +38,7 @@ def cadastrar_restaurante():
 
 
 def opcao_invalida():
-    
+    '''Função responsavel para retornar ao menu principal do programa'''
     resposta = input('Digite uma tecla para voltar ao menu principal: ')
     
     if not resposta:
@@ -45,7 +47,8 @@ def opcao_invalida():
         main()
 
 def listar_restaurantes():
-    
+    '''Função que vai listar os restaurantes e seus dados cadastrados no dicionario '''
+
     os.system('clear')
 
     print(f'listando os restaurante cadastrados')
@@ -60,6 +63,8 @@ def listar_restaurantes():
     opcao_invalida() 
     
 def alternar_estado_restaurante():
+    '''Função que vai alterar o status do restaurante '''
+
     os.system('clear')
     
     print('Alterar o estado do restaurante')
@@ -81,6 +86,8 @@ def alternar_estado_restaurante():
     opcao_invalida()
 
 def escolher_opcao():
+    '''Função reponsavel pelas chamadas das funções de acordo com o numero da opção escolhida'''
+    
     try:
         opcao_escolhida = int(input("Opção escolhida: "))
         print(f'Você escolheu a opção {opcao_escolhida}')
@@ -101,6 +108,8 @@ def escolher_opcao():
         opcao_invalida()
 
 def main():
+    '''Função principal de inicialização do programa'''
+
     os.system('clear')
     exibir_nome_programa()
     exibir_opcoes()
