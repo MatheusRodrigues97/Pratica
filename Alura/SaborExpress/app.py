@@ -9,6 +9,7 @@ def exibir_nome_programa():
     print('Sabor Express\n')
 
 def finalizar_app():
+    '''Função que encerrar o execução do aplicativo '''
 
     os.system('clear')
     print(f'encerrando app\n')
