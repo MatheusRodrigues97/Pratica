@@ -4,7 +4,6 @@ import requests
 app = FastAPI()
 
 @app.get('/api/hello')
-
 def hello_world():
     '''
     Endpoint que exibe o world
@@ -12,7 +11,6 @@ def hello_world():
     return {'Hello':'World'}
 
 @app.get('/api/restaurantes/')
-
 def get_restaurantes(restaurante: str = Query(None)):
     '''
     Endpoint para ver os cardapios dos restaurantes
